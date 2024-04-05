@@ -1,20 +1,16 @@
 import { Link } from 'react-router-dom'
+import { v4 as uuidv4 } from 'uuid'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { useState } from 'react'
 import Dropdown from '../../components/Dropdown'
 import { states, departments } from '../../__mock__/dropdownOptions'
-import { useDispatch, useSelector } from 'react-redux'
-import {
-    createUser,
-    resetUser,
-    selectListUsers,
-    updateListUsers,
-} from '../../__features__/user'
+import { useDispatch } from 'react-redux'
+import { createUser, resetUser, updateListUsers } from '../../__features__/user'
+import Modal from '../../components/Modal'
 
 function Home() {
     const dispatch = useDispatch()
-    const listUsers = useSelector(selectListUsers)
     const [startDate, setStartDate] = useState(null)
     const [dateOfBirth, setDateOfBirth] = useState(null)
     const [showModal, setShowModal] = useState(false)
@@ -40,46 +36,41 @@ function Home() {
     // Function to handle field changes
     const handleFieldChange = (e) => {
         const { name, value } = e.target
-        const userInfos_ = { ...userInfos }
-        userInfos_[name] = value
-        setUserInfos(userInfos_)
+        setUserInfos({ ...userInfos, [name]: value })
     }
     const handleSelectionChange = (option, nameState) => {
-        const userInfos_ = { ...userInfos }
-
-        if (nameState === 'department') {
-            userInfos_[nameState] = option
-        } else {
-            const globalState = states.find((state) => state.name === option)
-            userInfos_[nameState] = {
-                ...userInfos_[nameState],
-                name: globalState.name,
-                abbreviation: globalState.abbreviation,
-            }
-        }
-
-        setUserInfos(userInfos_)
+        const valueOption =
+            nameState === 'department'
+                ? option
+                : states.find((state) => state.name === option) // Find state with his abbreviation
+        setUserInfos({
+            ...userInfos,
+            [nameState]:
+                nameState === 'department'
+                    ? valueOption
+                    : {
+                          name: valueOption.name,
+                          abbreviation: valueOption.abbreviation,
+                      },
+        })
     }
     const handleDateChange = (date, nameDate) => {
         nameDate === 'dateOfBirth' ? setDateOfBirth(date) : setStartDate(date)
-        const userInfos_ = { ...userInfos }
-        userInfos_[nameDate] = date.toISOString() //Convert date to ISO 8601
-        setUserInfos(userInfos_)
+        setUserInfos({ ...userInfos, [nameDate]: date.toISOString() }) //Convert date to ISO 8601
     }
     const createId = () => {
-        //Create a unique ID
-        const lastUser = listUsers[listUsers.length - 1]
-        const userInfos_ = { ...userInfos }
-        userInfos_.id = lastUser.id + 1
-        setUserInfos(userInfos_)
+        // Generate a unique ID using UUID (Universally Unique Identifier)
+        const uniqueId = uuidv4()
+        setUserInfos({ ...userInfos, id: uniqueId })
     }
     const createEmployee = (e) => {
         e.preventDefault()
+        console.log(showModal)
         //
         dispatch(createUser(userInfos))
         dispatch(updateListUsers())
         dispatch(resetUser())
-        console.log(userInfos)
+        setShowModal(true)
     }
     return (
         <>
@@ -185,7 +176,12 @@ function Home() {
                     <button onClick={createId}>Save</button>
                 </form>
             </div>
-            {/* {showModal && <Modal message="Employee created !" />} */}
+            {showModal && (
+                <Modal
+                    message="Employee created !"
+                    onIconClick={(isOpen) => setShowModal(isOpen)}
+                />
+            )}
         </>
     )
 }
