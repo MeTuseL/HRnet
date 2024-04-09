@@ -1,0 +1,30 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 25px 0;
+}
+.container__title {
+  font-size: var(--font-size-36);
+  color: var(--primary-color-light);
+}
+.container__main {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 25px;
+  border-radius: 5px;
+  background-color: var(--primary-color);
+}
+.container__main__Link {
+  text-decoration: underline;
+  font-size: var(--font-size-20);
+  font-weight: 700;
+  color: var(--text-color-light);
+}/*# sourceMappingURL=employeeList.module.css.map */

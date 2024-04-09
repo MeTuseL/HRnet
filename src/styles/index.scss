@@ -1,0 +1,53 @@
+:root{
+    --primary-color: #6E860F;
+    --primary-color-light: #93AD18;
+    --primary-color-dark: #5B6F07;
+
+    --background-color: #E8CEA4;
+    --background-color-light: #FBFBFB;
+    --background-color-dark: #020203;
+
+    --text-color: #E8CEA4;
+    --text-color-light: #FBFBFB;
+    --text-color-dark: #020203;
+
+
+    --font-size-5: 5px;
+    --font-size-8: 8px;
+    --font-size-12: 12px;
+    --font-size-14: 14px;
+    --font-size-15: 15px;
+    --font-size-16: 16px;
+    --font-size-18: 18px;
+    --font-size-20: 20px;
+    --font-size-22: 22px;
+    --font-size-24: 24px;
+    --font-size-26: 26px;
+    --font-size-30: 30px;
+    --font-size-36: 36px;
+    --font-size-48: 48px;
+
+    --font-family: "Montserrat", sans-serif;
+    background-color: rgb(232, 206, 164);
+
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: var(--font-family);
+  }
+  
+  a {
+    text-decoration: none;
+  }
+  
+  li {
+    list-style-type: none
+  }
+  main {
+    min-height: 100vh;
+  }

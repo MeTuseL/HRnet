@@ -24,16 +24,20 @@
   min-height: 75px;
   display: flex;
   align-items: center;
+
+  .modal__closeIcon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+
+    &:hover {
+      color: red;
+    }
+  }
+
+  &__msg {
+    display: block;
+
+  }
 }
-.modal .modal__closeIcon {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  cursor: pointer;
-}
-.modal .modal__closeIcon:hover {
-  color: red;
-}
-.modal__msg {
-  display: block;
-}/*# sourceMappingURL=modal.module.css.map */

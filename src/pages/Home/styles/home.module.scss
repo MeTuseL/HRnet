@@ -1,0 +1,117 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 100%;
+    margin: 25px 0;
+
+
+    &__title {
+        font-size: var(--font-size-36);
+        color: var(--primary-color-light);
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center;
+        width: 350px;
+        padding: 25px;
+        border-radius: 5px;
+        background-color: var(--primary-color);
+
+        &__Link {
+            text-decoration: underline;
+            font-size: var(--font-size-16);
+            font-weight: 700;
+            color: var(--text-color-light)
+        }
+
+        h2 {
+            font-size: var(--font-size-26);
+            color: var(--primary-color-light);
+            margin: 15px 0;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+
+            label {
+                font-size: var(--font-size-16);
+                font-weight: 600;
+                color: var(--text-color);
+                margin-bottom: 10px;
+            }
+
+            input {
+                background-color: var(--text-color-light);
+                margin-bottom: 5px;
+                border: none;
+                width: 200px;
+                height: 30px;
+                border-radius: 5px;
+                font-size: var(--font-size-16);
+                padding: 5px;
+                color: var(--primary-color-light);
+                
+                &:focus{
+                    outline: 2px solid var(--primary-color-dark)                
+                }
+            }
+            fieldset{
+                display: flex;
+                flex-direction: column;
+                flex-wrap: nowrap;
+                padding: 10px;
+                border-color: var(--text-color);
+                border-radius: 5px;
+                margin-bottom: 20px;
+                
+                legend {
+                    font-size: var(--font-size-24);
+                font-weight: 600;
+                color: var(--primary-color-light);
+                }
+            }
+            .saveBtn {
+                width: 100px;
+                background-color: var(--text-color);
+                font-size: var(--font-size-16);
+                font-weight: 500;
+                color: var(--primary-color);
+                padding: 10px 20px;
+                margin: 20px 0;
+                border-radius: 5px;
+                border: none;
+                margin: auto;
+
+                &:hover{
+                    cursor: pointer;
+                    color: var(--text-color);
+                    background-color: var(--primary-color-light);
+                }
+            }
+       
+        }
+    }
+}
+.customDropdownSelect{
+    color: var(--primary-color)
+}
+.customDropdownOptions{
+    color: var(--primary-color)
+}
+.customDropdownOption{
+    &:hover{
+        color: var(--text-color-light);
+        background-color: var(--primary-color);
+    }
+}
+.customModal{
+    color: var(--primary-color);
+}
