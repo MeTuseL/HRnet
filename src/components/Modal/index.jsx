@@ -2,8 +2,7 @@ import { useState } from 'react'
 import { FaTimes } from 'react-icons/fa'
 import styles from './styles/modal.module.css'
 
-function Modal(props) {
-    const { message, onIconClick } = props
+function Modal({ message, onIconClick, customStyles }) {
     const [isOpen, setIsOpen] = useState(true)
 
     const handleIconClick = () => {
@@ -13,13 +12,21 @@ function Modal(props) {
     return (
         <>
             {isOpen && (
-                <div className={styles.modalContainer}>
-                    <div className={styles.modal}>
+                <div
+                    className={`${styles.modalContainer} ${customStyles && customStyles.modalContainer}`}
+                >
+                    <div
+                        className={`${styles.modal} ${customStyles && customStyles.modal}`}
+                    >
                         <FaTimes
-                            className={styles.modal__closeIcon}
+                            className={`${styles.modal__closeIcon} ${customStyles && customStyles.closeIcon}`}
                             onClick={handleIconClick}
                         />
-                        <span className={styles.modal__msg}>{message}</span>
+                        <span
+                            className={`${styles.modal__msg} ${customStyles && customStyles.msg}`}
+                        >
+                            {message}
+                        </span>
                     </div>
                 </div>
             )}
