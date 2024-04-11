@@ -1,8 +1,19 @@
 import React, { useState, useEffect } from 'react'
 import styles from './styles/datatable.module.css'
 import { FaSortUp, FaSortDown, FaSearch } from 'react-icons/fa'
+import PropTypes from 'prop-types'
 
-const DataTable = ({ data, customStyles }) => {
+/**
+ * DataTable component for displaying tabular data with sorting and pagination functionality.
+ *
+ * @category Components
+ * @component
+ * @param {object} props - The props passed to the DataTable component.
+ * @param {object[]} props.data - The array of objects representing the data to be displayed in the table.
+ * @param {object} [props.customStyles] - Custom styles for the DataTable.
+ * @returns {JSX.Element} A React element representing the DataTable.
+ */
+function DataTable({ data, customStyles }) {
     const [page, setPage] = useState(1)
     const [perPage, setPerPage] = useState(10)
     const [search, setSearch] = useState('')
@@ -51,7 +62,7 @@ const DataTable = ({ data, customStyles }) => {
         // Call the custom comparison function
         return compareValues(aValue, bValue)
     })
-
+    // Function to handle sorting by key
     const handleSort = (key) => {
         if (sortKey === key) {
             // Toggle sort order if the same key is clicked again
@@ -62,14 +73,12 @@ const DataTable = ({ data, customStyles }) => {
             setSortOrder('asc')
         }
     }
-
+    // Function to handle moving to previous page
     const handlePreviousPage = () => {
-        // Go to previous page
         setPage((prevPage) => Math.max(prevPage - 1, 1))
     }
-
+    // Function to handle moving to next page
     const handleNextPage = () => {
-        // Go to next page
         setPage((prevPage) =>
             Math.min(
                 prevPage + 1,
@@ -77,9 +86,8 @@ const DataTable = ({ data, customStyles }) => {
             )
         )
     }
-
+    // Function to handle changing entries per page
     const handlePerPageChange = (e) => {
-        // Change number of entries per page
         setPerPage(parseInt(e.target.value))
     }
 
@@ -231,5 +239,26 @@ const DataTable = ({ data, customStyles }) => {
         </div>
     )
 }
-
+DataTable.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
+    customStyles: PropTypes.shape({
+        tableContainer: PropTypes.string,
+        tableSearch: PropTypes.string,
+        tableSearchInput: PropTypes.string,
+        tableSearchIcon: PropTypes.string,
+        table: PropTypes.string,
+        tableTh: PropTypes.string,
+        tableThHeader: PropTypes.string,
+        tableThHeaderName: PropTypes.string,
+        tableThHeaderIconUp: PropTypes.string,
+        tableThHeaderIconDown: PropTypes.string,
+        tableBody: PropTypes.string,
+        tableNoResults: PropTypes.string,
+        tableCell: PropTypes.string,
+        pagination: PropTypes.string,
+        paginationPage: PropTypes.string,
+        paginationBtn: PropTypes.string,
+        paginationSelect: PropTypes.string,
+    }),
+}
 export default DataTable

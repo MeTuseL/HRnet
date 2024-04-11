@@ -6,7 +6,7 @@ import { users as usersMocked } from '../__mock__/users'
  *
  * @category Redux Slice
  * @namespace usersSlice
- * @property {Object} users - Object containing list users mocked and create.
+ * @property {Object[]} users - Array containing list of users mocked and created.
  */
 const initialState = {
     users: [...usersMocked],
@@ -45,11 +45,11 @@ export const usersSlice = createSlice({
 export const { updateListUsers } = usersSlice.actions
 
 /**
- * Selector function to  list of user's from state.
+ * Selector function to get the list of users from state.
  *
  * @category Redux Selector
  * @param {Object} state - Redux state object.
- * @returns {Object} List of user's.
+ * @returns {Object[]} List of users.
  */
 export const selectListUsers = (state) => state.usersInfos.users
 

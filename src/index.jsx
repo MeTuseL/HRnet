@@ -9,6 +9,16 @@ import store from './__store__/store'
 import './styles/index.css'
 import Layout from './components/Layout'
 
+/**
+ * Main entry point for the Argent Bank application.
+ *
+ * This script sets up the application's routing and state management
+ * using React Router and Redux.
+ *
+ * @category Router
+= */
+
+// Create the application's routing configuration
 const router = createBrowserRouter(
     [
         {
@@ -31,7 +41,7 @@ const router = createBrowserRouter(
         basename: '/HRnet',
     }
 )
-
+// Render the application with Redux Provider and Router Provider
 ReactDOM.createRoot(document.getElementById('root')).render(
     <React.StrictMode>
         <Provider store={store}>

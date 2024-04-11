@@ -1,4 +1,95 @@
-import { Link } from 'react-router-dom'
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> pages/Home/index.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">SportSee App - Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3><a href="global.html">Global</a></h3></div><div class="category"><h2>Components</h2><h3>Components</h3><ul><li><a href="DataTable.html">DataTable</a></li><li><a href="Dropdown.html">Dropdown</a></li><li><a href="ErrorField.html">ErrorField</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Modal.html">Modal</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Components</h3><ul><li><a href="EmployeeList.html">EmployeeList</a></li><li><a href="ErrorPage.html">ErrorPage</a></li><li><a href="Home.html">Home</a></li></ul></div><div class="category"><h2>Redux Reducer</h2><h3>Namespaces</h3><ul><li><a href="userssSlice.html">userssSlice</a></li></ul></div><div class="category"><h2>Redux Selector</h2><h3>Global</h3><ul><li><a href="global.html#selectListUsers">selectListUsers</a></li></ul></div><div class="category"><h2>Redux Slice</h2><h3>Namespaces</h3><ul><li><a href="usersSlice.html">usersSlice</a></li></ul></div><div class="category"><h2>Services</h2><h3>Global</h3><ul><li><a href="global.html#formatDate">formatDate</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>pages/Home/index.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { Link } from 'react-router-dom'
 import { v4 as uuidv4 } from 'uuid'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
@@ -93,7 +184,7 @@ function Home() {
     // Function to handle changes in date fields
     const handleDateChange = (date, nameDate) => {
         nameDate === 'dateOfBirth' ? setDateOfBirth(date) : setStartDate(date)
-        date && setUserInfos({ ...userInfos, [nameDate]: date.toISOString() }) //Convert date to ISO 8601
+        date &amp;&amp; setUserInfos({ ...userInfos, [nameDate]: date.toISOString() }) //Convert date to ISO 8601
 
         // Reset the error message when user starts typing in the field
         const emptyFieldName = `empty${nameDate.charAt(0).toUpperCase()}${nameDate.slice(1)}`
@@ -106,7 +197,7 @@ function Home() {
             today.getMonth(),
             today.getDate()
         )
-        if (nameDate === 'dateOfBirth' && date > minDateOfBirth) {
+        if (nameDate === 'dateOfBirth' &amp;&amp; date > minDateOfBirth) {
             setErrors({
                 ...errors,
                 emptyDateOfBirth: 'Employee must be at least 16 years old',
@@ -123,7 +214,7 @@ function Home() {
             newErrors.emptyFirstName = 'First name is required'
             valid = false
         } else if (
-            userInfos.firstName.trim().length < 3 ||
+            userInfos.firstName.trim().length &lt; 3 ||
             /\d/.test(userInfos.firstName)
         ) {
             newErrors.firstName = 'At least 3 letters and no numbers'
@@ -135,7 +226,7 @@ function Home() {
             newErrors.emptyLastName = 'Last name is required'
             valid = false
         } else if (
-            userInfos.lastName.trim().length < 3 ||
+            userInfos.lastName.trim().length &lt; 3 ||
             /\d/.test(userInfos.lastName)
         ) {
             newErrors.lastName = 'At least 3 letters and no numbers'
@@ -165,7 +256,7 @@ function Home() {
         if (!userInfos.street.trim()) {
             newErrors.emptyStreet = 'Street is required'
             valid = false
-        } else if (userInfos.street.trim().length < 3) {
+        } else if (userInfos.street.trim().length &lt; 3) {
             newErrors.street = 'At least 3 letters'
             valid = false
         }
@@ -174,7 +265,7 @@ function Home() {
         if (!userInfos.city.trim()) {
             newErrors.emptyCity = 'City is required'
             valid = false
-        } else if (userInfos.city.trim().length < 3) {
+        } else if (userInfos.city.trim().length &lt; 3) {
             newErrors.city = 'At least 3 letters'
             valid = false
         }
@@ -211,24 +302,24 @@ function Home() {
         setShowModal(true)
     }
     return (
-        <>
-            <div className={styles.container}>
-                <h1 className={styles.container__title}>HRnet</h1>
-                <div className={styles.container__main}>
-                    <Link
+        &lt;>
+            &lt;div className={styles.container}>
+                &lt;h1 className={styles.container__title}>HRnet&lt;/h1>
+                &lt;div className={styles.container__main}>
+                    &lt;Link
                         to="/employeelist"
                         className={styles.container__main__Link}
                     >
                         View Current Employees
-                    </Link>
-                    <h2>Create Employee</h2>
-                    <form
+                    &lt;/Link>
+                    &lt;h2>Create Employee&lt;/h2>
+                    &lt;form
                         action="#"
                         id="create-employee"
                         onSubmit={createEmployee}
                     >
-                        <label htmlFor="first-name">First Name</label>
-                        <input
+                        &lt;label htmlFor="first-name">First Name&lt;/label>
+                        &lt;input
                             type="text"
                             id="first-name"
                             name="firstName"
@@ -236,15 +327,15 @@ function Home() {
                             value={userInfos.firstName}
                             onChange={handleFieldChange}
                         />
-                        {errors.emptyFirstName && (
-                            <ErrorField messageError={errors.emptyFirstName} />
+                        {errors.emptyFirstName &amp;&amp; (
+                            &lt;ErrorField messageError={errors.emptyFirstName} />
                         )}
-                        {errors.firstName && (
-                            <ErrorField messageError={errors.firstName} />
+                        {errors.firstName &amp;&amp; (
+                            &lt;ErrorField messageError={errors.firstName} />
                         )}
 
-                        <label htmlFor="last-name">Last Name</label>
-                        <input
+                        &lt;label htmlFor="last-name">Last Name&lt;/label>
+                        &lt;input
                             type="text"
                             id="last-name"
                             name="lastName"
@@ -252,15 +343,15 @@ function Home() {
                             value={userInfos.lastName}
                             onChange={handleFieldChange}
                         />
-                        {errors.emptyLastName && (
-                            <ErrorField messageError={errors.emptyLastName} />
+                        {errors.emptyLastName &amp;&amp; (
+                            &lt;ErrorField messageError={errors.emptyLastName} />
                         )}
-                        {errors.lastName && (
-                            <ErrorField messageError={errors.lastName} />
+                        {errors.lastName &amp;&amp; (
+                            &lt;ErrorField messageError={errors.lastName} />
                         )}
 
-                        <label htmlFor="date-of-birth">Date of Birth</label>
-                        <DatePicker
+                        &lt;label htmlFor="date-of-birth">Date of Birth&lt;/label>
+                        &lt;DatePicker
                             id="date-of-birth"
                             placeholderText="mm/dd/yyyy"
                             selected={dateOfBirth}
@@ -268,17 +359,17 @@ function Home() {
                                 handleDateChange(date, nameDate[0])
                             }
                         />
-                        {errors.emptyDateOfBirth && (
-                            <ErrorField
+                        {errors.emptyDateOfBirth &amp;&amp; (
+                            &lt;ErrorField
                                 messageError={errors.emptyDateOfBirth}
                             />
                         )}
-                        {errors.dateOfBirth && (
-                            <ErrorField messageError={errors.dateOfBirth} />
+                        {errors.dateOfBirth &amp;&amp; (
+                            &lt;ErrorField messageError={errors.dateOfBirth} />
                         )}
 
-                        <label htmlFor="start-date">Start Date</label>
-                        <DatePicker
+                        &lt;label htmlFor="start-date">Start Date&lt;/label>
+                        &lt;DatePicker
                             id="start-date"
                             placeholderText="mm/dd/yyyy"
                             selected={startDate}
@@ -286,14 +377,14 @@ function Home() {
                                 handleDateChange(date, nameDate[1])
                             }
                         />
-                        {errors.emptyStartDate && (
-                            <ErrorField messageError={errors.emptyStartDate} />
+                        {errors.emptyStartDate &amp;&amp; (
+                            &lt;ErrorField messageError={errors.emptyStartDate} />
                         )}
-                        <fieldset>
-                            <legend>Address</legend>
+                        &lt;fieldset>
+                            &lt;legend>Address&lt;/legend>
 
-                            <label htmlFor="street">Street</label>
-                            <input
+                            &lt;label htmlFor="street">Street&lt;/label>
+                            &lt;input
                                 id="street"
                                 type="text"
                                 name="street"
@@ -301,15 +392,15 @@ function Home() {
                                 value={userInfos.street}
                                 onChange={handleFieldChange}
                             />
-                            {errors.emptyStreet && (
-                                <ErrorField messageError={errors.emptyStreet} />
+                            {errors.emptyStreet &amp;&amp; (
+                                &lt;ErrorField messageError={errors.emptyStreet} />
                             )}
-                            {errors.street && (
-                                <ErrorField messageError={errors.street} />
+                            {errors.street &amp;&amp; (
+                                &lt;ErrorField messageError={errors.street} />
                             )}
 
-                            <label htmlFor="city">City</label>
-                            <input
+                            &lt;label htmlFor="city">City&lt;/label>
+                            &lt;input
                                 id="city"
                                 type="text"
                                 name="city"
@@ -317,15 +408,15 @@ function Home() {
                                 value={userInfos.city}
                                 onChange={handleFieldChange}
                             />
-                            {errors.emptyCity && (
-                                <ErrorField messageError={errors.emptyCity} />
+                            {errors.emptyCity &amp;&amp; (
+                                &lt;ErrorField messageError={errors.emptyCity} />
                             )}
-                            {errors.city && (
-                                <ErrorField messageError={errors.city} />
+                            {errors.city &amp;&amp; (
+                                &lt;ErrorField messageError={errors.city} />
                             )}
 
-                            <label htmlFor="state">State</label>
-                            <Dropdown
+                            &lt;label htmlFor="state">State&lt;/label>
+                            &lt;Dropdown
                                 label="State"
                                 options={statesNames}
                                 onChange={(option) =>
@@ -338,12 +429,12 @@ function Home() {
                                     dropdownOption: styles.customDropdownOption,
                                 }}
                             />
-                            {errors.emptyState && (
-                                <ErrorField messageError={errors.emptyState} />
+                            {errors.emptyState &amp;&amp; (
+                                &lt;ErrorField messageError={errors.emptyState} />
                             )}
 
-                            <label htmlFor="zip-code">Zip Code</label>
-                            <input
+                            &lt;label htmlFor="zip-code">Zip Code&lt;/label>
+                            &lt;input
                                 id="zip-code"
                                 type="number"
                                 name="zipCode"
@@ -351,18 +442,18 @@ function Home() {
                                 value={userInfos.zipCode}
                                 onChange={handleFieldChange}
                             />
-                            {errors.emptyZipCode && (
-                                <ErrorField
+                            {errors.emptyZipCode &amp;&amp; (
+                                &lt;ErrorField
                                     messageError={errors.emptyZipCode}
                                 />
                             )}
-                            {errors.zipCode && (
-                                <ErrorField messageError={errors.zipCode} />
+                            {errors.zipCode &amp;&amp; (
+                                &lt;ErrorField messageError={errors.zipCode} />
                             )}
-                        </fieldset>
+                        &lt;/fieldset>
 
-                        <label htmlFor="department">Department</label>
-                        <Dropdown
+                        &lt;label htmlFor="department">Department&lt;/label>
+                        &lt;Dropdown
                             label="Department"
                             options={departments}
                             onChange={(option) =>
@@ -374,14 +465,14 @@ function Home() {
                                 dropdownOption: styles.customDropdownOption,
                             }}
                         />
-                        {errors.emptyDepartment && (
-                            <ErrorField messageError={errors.emptyDepartment} />
+                        {errors.emptyDepartment &amp;&amp; (
+                            &lt;ErrorField messageError={errors.emptyDepartment} />
                         )}
-                        <button className={styles.saveBtn}>Save</button>
-                    </form>
-                </div>
-                {showModal && (
-                    <Modal
+                        &lt;button className={styles.saveBtn}>Save&lt;/button>
+                    &lt;/form>
+                &lt;/div>
+                {showModal &amp;&amp; (
+                    &lt;Modal
                         message="Employee created !"
                         onIconClick={(isOpen) => setShowModal(isOpen)}
                         customStyles={{
@@ -389,8 +480,38 @@ function Home() {
                         }}
                     />
                 )}
-            </div>
-        </>
+            &lt;/div>
+        &lt;/>
     )
 }
 export default Home
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

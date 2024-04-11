@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Home</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">SportSee App - Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3><a href="global.html">Global</a></h3></div><div class="category"><h2>Components</h2><h3>Components</h3><ul><li><a href="DataTable.html">DataTable</a></li><li><a href="Dropdown.html">Dropdown</a></li><li><a href="ErrorField.html">ErrorField</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Modal.html">Modal</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Components</h3><ul><li><a href="EmployeeList.html">EmployeeList</a></li><li><a href="ErrorPage.html">ErrorPage</a></li><li><a href="Home.html">Home</a></li></ul></div><div class="category"><h2>Redux Reducer</h2><h3>Namespaces</h3><ul><li><a href="userssSlice.html">userssSlice</a></li></ul></div><div class="category"><h2>Redux Selector</h2><h3>Global</h3><ul><li><a href="global.html#selectListUsers">selectListUsers</a></li></ul></div><div class="category"><h2>Redux Slice</h2><h3>Namespaces</h3><ul><li><a href="usersSlice.html">usersSlice</a></li></ul></div><div class="category"><h2>Services</h2><h3>Global</h3><ul><li><a href="global.html#formatDate">formatDate</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p></p>
+                    <h1>Home</h1>
+                </header>
+                
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><p><img src="./src/assets/logo/logoHrNet.png" alt="HRnet"></p>
+<h1>HrNet</h1>
+<p><a href="https://metusel.github.io/HRnet/">Lien du site</a> - <a href="#description-en-français">README en Français</a> - <a href="#description-in-english">README en Anglais</a></p>
+<h2>Description en Français</h2>
+<h2>1. Présentation du projet</h2>
+<p>Projet réalisé dans le cadre du programme de formation Développeur Front-end JavaScript React chez <a href="https://openclassrooms.com/fr/paths/877-developpeur-dapplication-javascript-react">OpenClassrooms</a>.</p>
+<blockquote>
+<h4>1.1 Objectif :</h4>
+<ul>
+<li>Conversion d’une application de jQuery vers React pour une grande société financière.</li>
+</ul>
+<h4>1.2 Compétences évaluées :</h4>
+<ul>
+<li>Analyser la performance d'une application web</li>
+<li>Déployer une application front-end</li>
+<li>Refondre une application pour réduire la dette technique</li>
+<li>Mettre en place son environnement Front-End</li>
+<li>Produire de la documentation technique pour une application</li>
+</ul>
+</blockquote>
+<h2>2. Contraintes</h2>
+<h3>2.1 Fonctionnelles :</h3>
+<blockquote>
+<ul>
+<li>Mesurer les performances de l'application avant et après la conversion (voir : <a href="#51-performance"> 5.1 performance </a>)</li>
+<li>Un design plus moderne de l'application</li>
+</ul>
+</blockquote>
+<h3>2.2 Techniques :</h3>
+<blockquote>
+<ul>
+<li>Convertir l'ensemble du projet HRNet en React</li>
+<li>Convertir l'un des quatre plugins jQuery de l'application en React, et le publier sur npm ou Github packages (voir : <a href="#52-composant-convertie">5.2 composant convertie </a>)</li>
+<li>Un système de gestion d'état(Utilisation Redux)</li>
+</ul>
+</blockquote>
+<h2>3. Lancement du projet :</h2>
+<h3>3.1 Prérequis :</h3>
+<blockquote>
+<ul>
+<li><a href="https://git-scm.com">Git</a></li>
+<li><a href="https://nodejs.org/en/">Node</a> pour les commandes npm ou <a href="https://yarnpkg.com/">Yarn</a> pour les commandes yarn</li>
+</ul>
+</blockquote>
+<h3>3.2 Dépendances :</h3>
+<blockquote>
+<ul>
+<li><a href="https://reactjs.org">React</a>: ^18.2.0</li>
+<li><a href="https://reactrouter.com/">React-router-dom</a>: ^6.22.3</li>
+<li><code>npm i react-router-dom</code> ou <code>yarn add react-router-dom</code></li>
+<li><a href="https://react-redux.js.org/">react-redux</a>: ^9.1.0</li>
+<li><code>npm i react-redux</code> ou <code>yarn add react-redux</code></li>
+<li><a href="https://www.npmjs.com/package/@reduxjs/toolkit">@reduxjs/toolkit</a>: ^2.2.3</li>
+<li><code>npm i @reduxjs/toolkit</code> ou <code>yarn add @reduxjs/toolkit</code></li>
+<li><a href="https://www.npmjs.com/package/prop-types">prop-types</a>: ^15.8.1</li>
+<li><code>npm i prop-types</code> ou <code>yarn add prop-types</code></li>
+<li><a href="https://www.npmjs.com/package/react-datepicker">react-datapicker</a>: ^6.6.0</li>
+<li><code>npm i react-datapicker</code> ou <code>yarn add react-datapicker</code></li>
+<li><a href="https://www.npmjs.com/package/react-icons">react-icons</a>: ^5.0.1</li>
+<li><code>npm i react-icons</code> ou <code>yarn add react-icons</code></li>
+<li><a href="https://www.npmjs.com/package/uuid">uuid</a>: ^9.0.1</li>
+<li><code>npm i uuid</code> ou <code>yarn add uuid</code></li>
+</ul>
+</blockquote>
+<h2>4. Procédure d'installation :</h2>
+<p>Cloner le dépôt :</p>
+<blockquote>
+<pre><code>git clone https://github.com/MeTuseL/HRnet
+</code></pre>
+</blockquote>
+<h3>4.1 Configuration du front-end :</h3>
+<ul>
+<li>
+<p>Accéder au dossier &quot;frontend-hrnet&quot;</p>
+</li>
+<li>
+<p>Installer toutes les dépendances :</p>
+</li>
+</ul>
+<blockquote>
+<pre><code>  npm install ou yarn
+</code></pre>
+</blockquote>
+<ul>
+<li>Lancer le front-end :</li>
+</ul>
+<blockquote>
+<pre><code>npm run start ou yarn run start
+</code></pre>
+</blockquote>
+<p>Le front-end sera accessible sur le port 3003 :
+<code>http://localhost:3003/HRnet</code>.</p>
+<h2>5. Autres :</h2>
+<h3>5.1 Performance</h3>
+<ul>
+<li><a href="./lighthouse-repport">Lien vers les performances</a></li>
+</ul>
+<h3>5.2 Composant convertie</h3>
+<ul>
+<li><a href="https://www.npmjs.com/package/react-dropdown-metsel">Composant Dropdown convertie publié npm</a></li>
+<li><a href="https://github.com/MeTuseL/react-dropdown-metsel">Composant Dropdown convertie publié github</a></li>
+</ul>
+<hr>
+<p><img src="./src/assets/logo/logoHrNet.png" alt="HRnet"></p>
+<h1>HrNet</h1>
+<p><a href="https://metusel.github.io/HRnet/">Website Link</a> - <a href="#description-en-français">README in French</a> - <a href="#description-in-english">README in English</a></p>
+<h2>Description in English</h2>
+<h2>1. Project Overview</h2>
+<p>Project carried out as part of the JavaScript React Front-end Developer training program at <a href="https://openclassrooms.com/fr/paths/877-developpeur-dapplication-javascript-react">OpenClassrooms</a>.</p>
+<blockquote>
+<h4>1.1 Objective:</h4>
+<ul>
+<li>Conversion of an application from jQuery to React for a large financial company.</li>
+</ul>
+<h4>1.2 Assessed Skills:</h4>
+<ul>
+<li>Analyze the performance of a web application</li>
+<li>Deploy a front-end application</li>
+<li>Refactor an application to reduce technical debt</li>
+<li>Set up a Front-End environment</li>
+<li>Produce technical documentation for an application</li>
+</ul>
+</blockquote>
+<h2>2. Constraints</h2>
+<h3>2.1 Functional:</h3>
+<blockquote>
+<ul>
+<li>Measure the performance of the application before and after conversion (see: <a href="#51-performance"> 5.1 performance </a>)</li>
+<li>A more modern design for the application</li>
+</ul>
+</blockquote>
+<h3>2.2 Technical:</h3>
+<blockquote>
+<ul>
+<li>Convert the entire HRNet project to React</li>
+<li>Convert one of the four jQuery plugins of the application to React, and publish it on npm or Github packages (see: <a href="#52-composant-convertie">5.2 converted component </a>)</li>
+<li>State management system (Using Redux)</li>
+</ul>
+</blockquote>
+<h2>3. Project Launch:</h2>
+<h3>3.1 Prerequisites:</h3>
+<blockquote>
+<ul>
+<li><a href="https://git-scm.com">Git</a></li>
+<li><a href="https://nodejs.org/en/">Node</a> for npm commands or <a href="https://yarnpkg.com/">Yarn</a> for yarn commands</li>
+</ul>
+</blockquote>
+<h3>3.2 Dependencies:</h3>
+<blockquote>
+<ul>
+<li><a href="https://reactjs.org">React</a>: ^18.2.0</li>
+<li><a href="https://reactrouter.com/">React-router-dom</a>: ^6.22.3</li>
+<li><code>npm i react-router-dom</code> or <code>yarn add react-router-dom</code></li>
+<li><a href="https://react-redux.js.org/">react-redux</a>: ^9.1.0</li>
+<li><code>npm i react-redux</code> or <code>yarn add react-redux</code></li>
+<li><a href="https://www.npmjs.com/package/@reduxjs/toolkit">@reduxjs/toolkit</a>: ^2.2.3</li>
+<li><code>npm i @reduxjs/toolkit</code> or <code>yarn add @reduxjs/toolkit</code></li>
+<li><a href="https://www.npmjs.com/package/prop-types">prop-types</a>: ^15.8.1</li>
+<li><code>npm i prop-types</code> or <code>yarn add prop-types</code></li>
+<li><a href="https://www.npmjs.com/package/react-datepicker">react-datapicker</a>: ^6.6.0</li>
+<li><code>npm i react-datapicker</code> or <code>yarn add react-datapicker</code></li>
+<li><a href="https://www.npmjs.com/package/react-icons">react-icons</a>: ^5.0.1</li>
+<li><code>npm i react-icons</code> or <code>yarn add react-icons</code></li>
+<li><a href="https://www.npmjs.com/package/uuid">uuid</a>: ^9.0.1</li>
+<li><code>npm i uuid</code> or <code>yarn add uuid</code></li>
+</ul>
+</blockquote>
+<h2>4. Installation Procedure:</h2>
+<p>Clone the repository:</p>
+<blockquote>
+<pre><code>git clone https://github.com/MeTuseL/HRnet
+</code></pre>
+</blockquote>
+<h3>4.1 Front-end Configuration:</h3>
+<ul>
+<li>
+<p>Access the &quot;frontend-hrnet&quot; folder</p>
+</li>
+<li>
+<p>Install all dependencies:</p>
+</li>
+</ul>
+<blockquote>
+<pre><code>  npm install or yarn
+</code></pre>
+</blockquote>
+<ul>
+<li>Launch the front-end:</li>
+</ul>
+<blockquote>
+<pre><code>npm run start or yarn run start
+</code></pre>
+</blockquote>
+<p>The front-end will be accessible on port 3003:
+<code>http://localhost:3003/HRnet</code>.</p>
+<h2>5. Others:</h2>
+<h3>5.1 Performance</h3>
+<ul>
+<li><a href="./lighthouse-repport">Link to performance</a></li>
+</ul>
+<h3>5.2 Converted Component</h3>
+<ul>
+<li><a href="https://www.npmjs.com/package/react-dropdown-metsel">Converted Dropdown Component published on npm</a></li>
+<li><a href="https://github.com/MeTuseL/react-dropdown-metsel">Converted Dropdown Component published on github</a></li>
+</ul></article>
+    </section>
+
+
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

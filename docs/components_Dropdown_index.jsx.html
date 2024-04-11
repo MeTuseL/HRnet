@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> components/Dropdown/index.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">SportSee App - Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3><a href="global.html">Global</a></h3></div><div class="category"><h2>Components</h2><h3>Components</h3><ul><li><a href="DataTable.html">DataTable</a></li><li><a href="Dropdown.html">Dropdown</a></li><li><a href="ErrorField.html">ErrorField</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Modal.html">Modal</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Components</h3><ul><li><a href="EmployeeList.html">EmployeeList</a></li><li><a href="ErrorPage.html">ErrorPage</a></li><li><a href="Home.html">Home</a></li></ul></div><div class="category"><h2>Redux Reducer</h2><h3>Namespaces</h3><ul><li><a href="userssSlice.html">userssSlice</a></li></ul></div><div class="category"><h2>Redux Selector</h2><h3>Global</h3><ul><li><a href="global.html#selectListUsers">selectListUsers</a></li></ul></div><div class="category"><h2>Redux Slice</h2><h3>Namespaces</h3><ul><li><a href="usersSlice.html">usersSlice</a></li></ul></div><div class="category"><h2>Services</h2><h3>Global</h3><ul><li><a href="global.html#formatDate">formatDate</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>components/Dropdown/index.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState, useEffect, useRef } from 'react'
+import styles from './styles/dropdown.module.css'
+import { FaAngleDown } from 'react-icons/fa'
+import PropTypes from 'prop-types'
+
+/**
+ * Dropdown component for selecting options from a list.
+ *
+ * @category Components
+ * @component
+ * @param {object} props - The props passed to the Dropdown component.
+ * @param {string} props.label - The label for the dropdown.
+ * @param {string[]} props.options - The options to be displayed in the dropdown.
+ * @param {Function} props.onChange - The function to be called when an option is selected.
+ * @param {object|string} props.customStyles - Custom styles for the dropdown.
+ * @returns {JSX.Element} A React element representing the dropdown.
+ */
+function Dropdown({ label, options, onChange, customStyles }) {
+    const [isActive, setIsActive] = useState(false)
+    const [selectedOption, setSelectedOption] = useState(null)
+    const dropdownRef = useRef(null)
+
+    useEffect(() => {
+        // Function to handle clicks outside the dropdown
+        const handleClickOutside = (e) => {
+            // Check if dropdown reference exists and if the clicked element is outside the dropdown
+            if (
+                dropdownRef.current &amp;&amp;
+                !dropdownRef.current.contains(e.target)
+            ) {
+                // If clicked outside, close the dropdown
+                setIsActive(false)
+            }
+        }
+        // Add event listener for clicks outside the dropdown when the component mounts
+        document.addEventListener('mousedown', handleClickOutside)
+        // Remove event listener when the component unmounts to avoid memory leaks
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside)
+        }
+    }, [dropdownRef])
+
+    // Function to handle option click
+    const handleOptionClick = (option) => {
+        setSelectedOption(option)
+        setIsActive(false)
+        onChange(option)
+    }
+    // Function to toggle dropdown visibility
+    const toggleDropdown = () => {
+        setIsActive(!isActive)
+    }
+
+    return (
+        &lt;>
+            &lt;div
+                className={`${styles.dropdown} ${
+                    customStyles &amp;&amp;
+                    typeof customStyles.dropdown === 'string' &amp;&amp;
+                    customStyles.dropdown
+                }`}
+                style={{
+                    ...(customStyles &amp;&amp;
+                        typeof customStyles.dropdown === 'object' &amp;&amp;
+                        customStyles.dropdown),
+                }}
+                ref={dropdownRef}
+            >
+                &lt;div
+                    className={`${styles.dropdown__select} ${
+                        customStyles &amp;&amp;
+                        typeof customStyles.dropdownSelect === 'string' &amp;&amp;
+                        customStyles.dropdownSelect
+                    }`}
+                    style={{
+                        borderRadius: isActive ? '4px 4px 0 0' : '4px',
+                        ...(customStyles &amp;&amp;
+                            typeof customStyles.dropdownSelect === 'object' &amp;&amp;
+                            customStyles.dropdownSelect),
+                    }}
+                    onClick={toggleDropdown}
+                >
+                    {selectedOption === null ? (
+                        &lt;span>{label}&lt;/span>
+                    ) : (
+                        &lt;span>{selectedOption}&lt;/span>
+                    )}
+                    &lt;FaAngleDown
+                        className={`${styles.dropdown__icon} ${
+                            customStyles &amp;&amp;
+                            typeof customStyles.dropdownIcon === 'string' &amp;&amp;
+                            customStyles.dropdownIcon
+                        }`}
+                        style={{
+                            transform: isActive ? 'rotate(180deg)' : '',
+                            ...(customStyles &amp;&amp;
+                                typeof customStyles.dropdownIcon === 'object' &amp;&amp;
+                                customStyles.dropdownIcon),
+                        }}
+                    />
+                &lt;/div>
+
+                &lt;div
+                    className={`${styles.dropdown__options} ${
+                        customStyles &amp;&amp;
+                        typeof customStyles.dropdownOptions === 'string' &amp;&amp;
+                        customStyles.dropdownOptions
+                    }`}
+                    style={{
+                        maxHeight: isActive ? '150px' : '0',
+                        ...(customStyles &amp;&amp;
+                            typeof customStyles.dropdownOptions === 'object' &amp;&amp;
+                            customStyles.dropdownOptions),
+                    }}
+                >
+                    {options.map((option, index) => (
+                        &lt;div
+                            key={index}
+                            className={`${styles.dropdown__options__option} ${
+                                customStyles &amp;&amp;
+                                typeof customStyles.dropdownOption ===
+                                    'string' &amp;&amp;
+                                customStyles.dropdownOption
+                            }`}
+                            style={{
+                                ...(customStyles &amp;&amp;
+                                    typeof customStyles.dropdownOption ===
+                                        'object' &amp;&amp;
+                                    customStyles.dropdownOption),
+                            }}
+                            onClick={() => handleOptionClick(option)}
+                        >
+                            {option}
+                        &lt;/div>
+                    ))}
+                &lt;/div>
+            &lt;/div>
+        &lt;/>
+    )
+}
+Dropdown.propTypes = {
+    label: PropTypes.string.isRequired,
+    options: PropTypes.arrayOf(PropTypes.string).isRequired,
+    onChange: PropTypes.func.isRequired,
+    customStyles: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
+}
+
+export default Dropdown
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

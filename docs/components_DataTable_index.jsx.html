@@ -1,0 +1,385 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> components/DataTable/index.jsx</title>
+
+  <script src="https://cdn.jsdelivr.net/gh/google/code-prettify@master/loader/run_prettify.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script src="./build/entry.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,400,700|Inconsolata,700" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="https://jmblog.github.io/color-themes-for-google-code-prettify/themes/tomorrow-night.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/app.min.css">
+  <link type="text/css" rel="stylesheet" href="styles/iframe.css">
+  <link type="text/css" rel="stylesheet" href="">
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+
+  
+</head>
+
+
+
+<body class="layout small-header">
+    <div id="stickyNavbarOverlay"></div>
+    
+
+<div class="top-nav">
+    <div class="inner">
+        <a id="hamburger" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+        <div class="logo">
+            
+             
+                <a href="index.html">
+                    <h1 class="navbar-item">SportSee App - Documentation</h1>
+                </a>
+            
+        </div>
+        <div class="menu">
+            
+            <div class="navigation">
+                <a
+                    href="index.html"
+                    class="link"
+                >
+                    Documentation
+                </a>
+                
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="main">
+        <div
+            class="sidebar "
+            id="sidebarNav"
+        >
+            
+            <nav>
+                
+                    <h2><a href="index.html">Documentation</a></h2><div class="category"><h3><a href="global.html">Global</a></h3></div><div class="category"><h2>Components</h2><h3>Components</h3><ul><li><a href="DataTable.html">DataTable</a></li><li><a href="Dropdown.html">Dropdown</a></li><li><a href="ErrorField.html">ErrorField</a></li><li><a href="Layout.html">Layout</a></li><li><a href="Modal.html">Modal</a></li></ul></div><div class="category"><h2>Pages</h2><h3>Components</h3><ul><li><a href="EmployeeList.html">EmployeeList</a></li><li><a href="ErrorPage.html">ErrorPage</a></li><li><a href="Home.html">Home</a></li></ul></div><div class="category"><h2>Redux Reducer</h2><h3>Namespaces</h3><ul><li><a href="userssSlice.html">userssSlice</a></li></ul></div><div class="category"><h2>Redux Selector</h2><h3>Global</h3><ul><li><a href="global.html#selectListUsers">selectListUsers</a></li></ul></div><div class="category"><h2>Redux Slice</h2><h3>Namespaces</h3><ul><li><a href="usersSlice.html">usersSlice</a></li></ul></div><div class="category"><h2>Services</h2><h3>Global</h3><ul><li><a href="global.html#formatDate">formatDate</a></li></ul></div>
+                
+            </nav>
+        </div>
+        <div class="core" id="main-content-wrapper">
+            <div class="content">
+                <header class="page-title">
+                    <p>Source</p>
+                    <h1>components/DataTable/index.jsx</h1>
+                </header>
+                
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React, { useState, useEffect } from 'react'
+import styles from './styles/datatable.module.css'
+import { FaSortUp, FaSortDown, FaSearch } from 'react-icons/fa'
+import PropTypes from 'prop-types'
+
+/**
+ * DataTable component for displaying tabular data with sorting and pagination functionality.
+ *
+ * @category Components
+ * @component
+ * @param {object} props - The props passed to the DataTable component.
+ * @param {object[]} props.data - The array of objects representing the data to be displayed in the table.
+ * @param {object} [props.customStyles] - Custom styles for the DataTable.
+ * @returns {JSX.Element} A React element representing the DataTable.
+ */
+function DataTable({ data, customStyles }) {
+    const [page, setPage] = useState(1)
+    const [perPage, setPerPage] = useState(10)
+    const [search, setSearch] = useState('')
+    const [filteredSearchData, setFilteredSearchData] = useState(data)
+    const [sortKey, setSortKey] = useState('')
+    const [sortOrder, setSortOrder] = useState('')
+
+    useEffect(() => {
+        // Filter data based on search
+        const filtered = data.filter((user) =>
+            Object.values(user).some((value) =>
+                value.toString().toLowerCase().includes(search.toLowerCase())
+            )
+        )
+        setFilteredSearchData(filtered)
+        setPage(1) // Reset page when search  changes
+    }, [data, search])
+
+    // Sort data based on the selected key and order
+    const sortedData = [...filteredSearchData].sort((a, b) => {
+        const aValue = a[sortKey]
+        const bValue = b[sortKey]
+
+        // Custom comparison function
+        const compareValues = (valueA, valueB) => {
+            // Check if the values are numbers
+            if (!isNaN(valueA) &amp;&amp; !isNaN(valueB)) {
+                return sortOrder === 'asc' ? valueA - valueB : valueB - valueA
+            }
+            // Check if the values are dates
+            else if (Date.parse(valueA) &amp;&amp; Date.parse(valueB)) {
+                const dateA = new Date(valueA)
+                const dateB = new Date(valueB)
+                return sortOrder === 'asc' ? dateA - dateB : dateB - dateA
+            }
+            // Compare the values as strings
+            else {
+                const stringA = String(valueA).toLowerCase()
+                const stringB = String(valueB).toLowerCase()
+                return sortOrder === 'asc'
+                    ? stringA.localeCompare(stringB)
+                    : stringB.localeCompare(stringA)
+            }
+        }
+
+        // Call the custom comparison function
+        return compareValues(aValue, bValue)
+    })
+    // Function to handle sorting by key
+    const handleSort = (key) => {
+        if (sortKey === key) {
+            // Toggle sort order if the same key is clicked again
+            setSortOrder(sortOrder === 'asc' ? 'desc' : 'asc')
+        } else {
+            // Set the new sort key and order
+            setSortKey(key)
+            setSortOrder('asc')
+        }
+    }
+    // Function to handle moving to previous page
+    const handlePreviousPage = () => {
+        setPage((prevPage) => Math.max(prevPage - 1, 1))
+    }
+    // Function to handle moving to next page
+    const handleNextPage = () => {
+        setPage((prevPage) =>
+            Math.min(
+                prevPage + 1,
+                Math.ceil(filteredSearchData.length / perPage)
+            )
+        )
+    }
+    // Function to handle changing entries per page
+    const handlePerPageChange = (e) => {
+        setPerPage(parseInt(e.target.value))
+    }
+
+    // Slice the sorted data to display only entries for the current page
+    const currentPageData = sortedData.slice(
+        (page - 1) * perPage,
+        page * perPage
+    )
+
+    return (
+        &lt;div
+            className={`${styles.tableContainer} ${customStyles &amp;&amp; customStyles.tableContainer}`}
+        >
+            &lt;div
+                className={`${styles.tableSearch} ${customStyles &amp;&amp; customStyles.tableSearch}`}
+            >
+                &lt;input
+                    className={`${styles.tableSearch__input} ${customStyles &amp;&amp; customStyles.tableSearchInput}`}
+                    type="text"
+                    placeholder="Search"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+                &lt;FaSearch
+                    className={`${styles.tableSearch__icon} ${customStyles &amp;&amp; customStyles.tableSearchIcon}`}
+                />
+            &lt;/div>
+            &lt;table
+                className={`${styles.table} ${customStyles &amp;&amp; customStyles.table}`}
+            >
+                &lt;thead>
+                    &lt;tr>
+                        {Object.keys(data[0]).map((key) => (
+                            &lt;th
+                                className={`${styles.table__th} ${customStyles &amp;&amp; customStyles.tableTh}`}
+                                key={key}
+                                onClick={() => handleSort(key)}
+                            >
+                                &lt;div
+                                    className={`${styles.table__th__header} 
+                                    ${customStyles &amp;&amp; customStyles.tableThHeader}`}
+                                >
+                                    &lt;span
+                                        className={`${styles.table__th__header__name} 
+                                        ${customStyles &amp;&amp; customStyles.tableThHeaderName}`}
+                                    >
+                                        {key.charAt(0).toUpperCase() +
+                                            key.slice(1)}
+                                    &lt;/span>
+                                    &lt;span>
+                                        &lt;FaSortUp
+                                            className={`${styles.table__th__header__iconUp} 
+                                        ${customStyles &amp;&amp; customStyles.tableThHeaderIconUp}`}
+                                            style={{
+                                                color:
+                                                    sortKey === key &amp;&amp;
+                                                    sortOrder === 'asc'
+                                                        ? '#615d5d'
+                                                        : '#C7C4C4',
+                                            }}
+                                        />
+                                        &lt;FaSortDown
+                                            className={`${styles.table__th__header__iconDown} 
+                                        ${customStyles &amp;&amp; customStyles.tableThHeaderIconDown}`}
+                                            style={{
+                                                color:
+                                                    sortKey === key &amp;&amp;
+                                                    sortOrder === 'desc'
+                                                        ? '#615d5d'
+                                                        : '#C7C4C4',
+                                            }}
+                                        />
+                                    &lt;/span>
+                                &lt;/div>
+                            &lt;/th>
+                        ))}
+                    &lt;/tr>
+                &lt;/thead>
+
+                &lt;tbody
+                    className={`${styles.table__body} ${customStyles &amp;&amp; customStyles.tableBody}`}
+                >
+                    {currentPageData.length === 0 ? (
+                        &lt;tr>
+                            &lt;td
+                                colSpan={Object.keys(data[0]).length}
+                                className={styles.table__body__noResults}
+                            >
+                                &lt;span
+                                    className={`${styles.noResultsMsg} ${customStyles &amp;&amp; customStyles.tableNoResults}`}
+                                >
+                                    No results found
+                                &lt;/span>
+                            &lt;/td>
+                        &lt;/tr>
+                    ) : (
+                        currentPageData.map((user, index) => (
+                            &lt;tr key={index}>
+                                {Object.values(user).map((value, i) => (
+                                    &lt;td
+                                        key={i}
+                                        className={`${styles.table__body__cell}
+                                            ${customStyles &amp;&amp; customStyles.tableCell}`}
+                                    >
+                                        {value}
+                                    &lt;/td>
+                                ))}
+                            &lt;/tr>
+                        ))
+                    )}
+                &lt;/tbody>
+            &lt;/table>
+            &lt;div
+                className={`${styles.pagination} ${customStyles &amp;&amp; customStyles.pagination}`}
+            >
+                &lt;span
+                    className={`${styles.pagination__page} ${customStyles &amp;&amp; customStyles.paginationPage}`}
+                >
+                    {`Page ${page} of ${Math.ceil(filteredSearchData.length / perPage)}`}
+                &lt;/span>
+                &lt;button
+                    className={`${styles.pagination__btn} ${customStyles &amp;&amp; customStyles.paginationBtn}`}
+                    onClick={handlePreviousPage}
+                    disabled={page === 1}
+                >
+                    Previous
+                &lt;/button>
+                &lt;button
+                    className={`${styles.pagination__btn} ${customStyles &amp;&amp; customStyles.paginationBtn}`}
+                    onClick={handleNextPage}
+                    disabled={
+                        page === Math.ceil(filteredSearchData.length / perPage)
+                    }
+                >
+                    Next
+                &lt;/button>
+                &lt;select
+                    className={`${styles.pagination__select} ${customStyles &amp;&amp; customStyles.paginationSelect}`}
+                    onChange={handlePerPageChange}
+                    value={perPage}
+                >
+                    {[10, 25, 50, 100].map((value) => (
+                        &lt;option key={value} value={value}>
+                            Show {value} entries
+                        &lt;/option>
+                    ))}
+                &lt;/select>
+            &lt;/div>
+        &lt;/div>
+    )
+}
+DataTable.propTypes = {
+    data: PropTypes.arrayOf(PropTypes.object).isRequired,
+    customStyles: PropTypes.shape({
+        tableContainer: PropTypes.string,
+        tableSearch: PropTypes.string,
+        tableSearchInput: PropTypes.string,
+        tableSearchIcon: PropTypes.string,
+        table: PropTypes.string,
+        tableTh: PropTypes.string,
+        tableThHeader: PropTypes.string,
+        tableThHeaderName: PropTypes.string,
+        tableThHeaderIconUp: PropTypes.string,
+        tableThHeaderIconDown: PropTypes.string,
+        tableBody: PropTypes.string,
+        tableNoResults: PropTypes.string,
+        tableCell: PropTypes.string,
+        pagination: PropTypes.string,
+        paginationPage: PropTypes.string,
+        paginationBtn: PropTypes.string,
+        paginationSelect: PropTypes.string,
+    }),
+}
+export default DataTable
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+            </div>
+            
+            <footer class="footer">
+                <div class="content has-text-centered">
+                    <p>Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a></p>
+                    <p class="sidebar-created-by">
+                        <a href="https://github.com/SoftwareBrothers/better-docs" target="_blank">BetterDocs theme</a> provided with <i class="fas fa-heart"></i> by
+                        <a href="http://softwarebrothers.co" target="_blank">SoftwareBrothers - JavaScript Development Agency</a>
+                    </p>
+                </div>
+            </footer>
+            
+        </div>
+        <div id="side-nav" class="side-nav">
+        </div>
+    </div>
+<script src="scripts/app.min.js"></script>
+<script>PR.prettyPrint();</script>
+<script src="scripts/linenumber.js"> </script>
+
+
+</body>
+</html>

@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import styles from './styles/errorPage.module.css'
 
 /**
  * Component representing the error page.
@@ -12,9 +13,15 @@ import { Link } from 'react-router-dom'
 function ErrorPage() {
     return (
         <>
-            <div>
-                <h2>404 Page not found</h2>
-                <Link to="/">Return to homepage</Link>
+            <div className={styles.container}>
+                <div className={styles.errorPage}>
+                    <h2 className={styles.errorPage__title}>
+                        404 Page not found
+                    </h2>
+                    <Link to="/" className={styles.errorPage__Link}>
+                        Return to homepage
+                    </Link>
+                </div>
             </div>
         </>
     )

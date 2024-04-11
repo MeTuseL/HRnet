@@ -5,10 +5,17 @@ import DataTable from '../../components/DataTable'
 import { formatDate } from '../../__services__/formatData'
 import styles from './styles/employeeList.module.css'
 
+/**
+ * Component for displaying the list of employees.
+ *
+ * @category Pages
+ * @component
+ * @returns {JSX.Element} A React element representing the employee list page.
+ */
 function EmployeeList() {
     const listUsers = useSelector(selectListUsers)
     // Format the list of users by removing the ID
-    //and replacing the state object with its abbreviation
+    // and replacing the state object with its abbreviation
     // and formatting the dates
     const formatListUsers = listUsers.map(({ id, ...user }) => ({
         ...user,

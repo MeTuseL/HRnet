@@ -1,3 +1,10 @@
+/**
+ * Function to format a date in MM/DD/YYYY format.
+ *
+ * @category Services
+ * @param {string|number|Date} date - The date to format.
+ * @returns {string} The formatted date string.
+ */
 export const formatDate = (date) => {
     const newdate = new Date(date)
     const month = newdate.getMonth() + 1

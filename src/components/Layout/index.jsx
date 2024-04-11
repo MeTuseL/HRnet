@@ -10,7 +10,7 @@ import styles from './styles/layout.module.css'
 function Layout() {
     return (
         <>
-            <div className={styles.container}>
+            <div className={styles.container} data-testid="layout-container">
                 <main>
                     <Outlet />
                 </main>
