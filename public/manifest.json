@@ -10,7 +10,7 @@
         {
             "src": "assets/logo/logoHrNet.png",
             "type": "image/png",
-            "sizes": "192x192"
+            "sizes": "136x146"
         }
     ],
     "start_url": ".",
