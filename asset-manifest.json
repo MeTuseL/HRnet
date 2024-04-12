@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/HRnet/static/css/main.01ec4f57.css",
-    "main.js": "/HRnet/static/js/main.764b74bb.js",
+    "main.css": "/HRnet/static/css/main.20b6a286.css",
+    "main.js": "/HRnet/static/js/main.fdc98a4a.js",
     "index.html": "/HRnet/index.html",
-    "main.01ec4f57.css.map": "/HRnet/static/css/main.01ec4f57.css.map",
-    "main.764b74bb.js.map": "/HRnet/static/js/main.764b74bb.js.map"
+    "main.20b6a286.css.map": "/HRnet/static/css/main.20b6a286.css.map",
+    "main.fdc98a4a.js.map": "/HRnet/static/js/main.fdc98a4a.js.map"
   },
   "entrypoints": [
-    "static/css/main.01ec4f57.css",
-    "static/js/main.764b74bb.js"
+    "static/css/main.20b6a286.css",
+    "static/js/main.fdc98a4a.js"
   ]
 }
