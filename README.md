@@ -85,7 +85,7 @@ Le front-end sera accessible sur le port 3003 :
 
 ### 5.1 Performance
 
--   [Lien vers les performances](./lighthouse-repport)
+-   [Lien vers les performances](./lighthouse-report)
 
 ### 5.2 Composant convertie
 
@@ -181,7 +181,7 @@ The front-end will be accessible on port 3003:
 
 ### 5.1 Performance
 
--   [Link to performance](./lighthouse-repport)
+-   [Link to performance](./lighthouse-report)
 
 ### 5.2 Converted Component
 
