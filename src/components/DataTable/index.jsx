@@ -224,7 +224,11 @@ function DataTable({ data, customStyles }) {
                 >
                     Next
                 </button>
+                <label for="pagination-select" class={styles.visually_hidden}>
+                    Choose an option :
+                </label>
                 <select
+                    id="pagination-select"
                     className={`${styles.pagination__select} ${customStyles && customStyles.paginationSelect}`}
                     onChange={handlePerPageChange}
                     value={perPage}
