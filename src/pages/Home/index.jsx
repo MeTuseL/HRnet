@@ -3,12 +3,12 @@ import { v4 as uuidv4 } from 'uuid'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import React, { useState } from 'react'
-import Dropdown from '../../components/Dropdown'
+import Dropdown from '../../components/Dropdown/index.jsx'
 import { states, departments } from '../../__mock__/dropdownOptions'
 import { useDispatch } from 'react-redux'
 import { updateListUsers } from '../../__features__/users'
-import Modal from '../../components/Modal'
-import ErrorField from '../../components/ErrorField'
+import Modal from '../../components/Modal/index.jsx'
+import ErrorField from '../../components/ErrorField/index.jsx'
 // import Dropdown from 'react-dropdown-metsel'
 // import 'react-dropdown-metsel/dist/index.css'
 import styles from './styles/home.module.css'
@@ -92,9 +92,14 @@ function Home() {
     }
     // Function to handle changes in date fields
     const handleDateChange = (date, nameDate) => {
-        nameDate === 'dateOfBirth' ? setDateOfBirth(date) : setStartDate(date)
-        date && setUserInfos({ ...userInfos, [nameDate]: date.toISOString() }) //Convert date to ISO 8601
-
+        if (nameDate === 'dateOfBirth') {
+            setDateOfBirth(date)
+        } else {
+            setStartDate(date)
+        }
+        if (date) {
+            setUserInfos({ ...userInfos, [nameDate]: date.toISOString() })
+        }
         // Reset the error message when user starts typing in the field
         const emptyFieldName = `empty${nameDate.charAt(0).toUpperCase()}${nameDate.slice(1)}`
         setErrors({ ...errors, [nameDate]: '', [emptyFieldName]: '' })

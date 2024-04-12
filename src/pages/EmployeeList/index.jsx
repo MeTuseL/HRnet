@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { selectListUsers } from '../../__features__/users'
-import DataTable from '../../components/DataTable'
+import DataTable from '../../components/DataTable/index.jsx'
 import { formatDate } from '../../__services__/formatData'
 import styles from './styles/employeeList.module.css'
 
@@ -17,6 +17,7 @@ function EmployeeList() {
     // Format the list of users by removing the ID
     // and replacing the state object with its abbreviation
     // and formatting the dates
+    // eslint-disable-next-line no-unused-vars
     const formatListUsers = listUsers.map(({ id, ...user }) => ({
         ...user,
         startDate: formatDate(user.startDate),
@@ -25,7 +26,7 @@ function EmployeeList() {
     }))
 
     return (
-        <>
+        <div>
             <div className={styles.container}>
                 <h1 className={styles.container__title}>Current Employees</h1>
                 <div className={styles.container__main}>
@@ -36,7 +37,7 @@ function EmployeeList() {
                     </Link>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 export default EmployeeList

@@ -8,7 +8,6 @@
         "@testing-library/jest-dom": "^5.17.0",
         "@testing-library/react": "^13.4.0",
         "@testing-library/user-event": "^13.5.0",
-        "better-docs": "^2.7.3",
         "gh-pages": "^6.1.1",
         "jsdoc": "^4.0.2",
         "prettier": "^3.2.5",
@@ -53,6 +52,8 @@
         ]
     },
     "devDependencies": {
-        "@babel/plugin-proposal-private-property-in-object": "^7.21.11"
+        "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+        "eslint": "^8.57.0",
+        "eslint-plugin-react": "^7.34.1"
     }
 }

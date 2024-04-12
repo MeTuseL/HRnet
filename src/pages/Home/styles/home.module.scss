@@ -9,7 +9,7 @@
 
     &__title {
         font-size: var(--font-size-36);
-        color: var(--primary-color-light);
+        color: var(--primary-color-dark);
     }
 
     &__main {
@@ -21,7 +21,7 @@
         width: 350px;
         padding: 25px;
         border-radius: 5px;
-        background-color: var(--primary-color);
+        background-color: var(--primary-color-dark);
 
         &__Link {
             text-decoration: underline;
@@ -44,7 +44,7 @@
             label {
                 font-size: var(--font-size-16);
                 font-weight: 600;
-                color: var(--text-color);
+                color: var(--primary-color);
                 margin-bottom: 10px;
             }
 
@@ -57,7 +57,7 @@
                 border-radius: 5px;
                 font-size: var(--font-size-16);
                 padding: 5px;
-                color: var(--primary-color-light);
+                color: var(--primary-color-dark);
                 
                 &:focus{
                     outline: 2px solid var(--primary-color-dark)                
@@ -68,7 +68,7 @@
                 flex-direction: column;
                 flex-wrap: nowrap;
                 padding: 10px;
-                border-color: var(--text-color);
+                border-color: var(--primary-color-light);
                 border-radius: 5px;
                 margin-bottom: 20px;
                 
@@ -80,10 +80,10 @@
             }
             .saveBtn {
                 width: 100px;
-                background-color: var(--text-color);
+                background-color: var(--primary-color-light);
                 font-size: var(--font-size-16);
-                font-weight: 500;
-                color: var(--primary-color);
+                font-weight: 600;
+                color: var(--primary-color-dark);
                 padding: 10px 20px;
                 margin: 20px 0;
                 border-radius: 5px;
@@ -92,8 +92,8 @@
 
                 &:hover{
                     cursor: pointer;
-                    color: var(--text-color);
-                    background-color: var(--primary-color-light);
+                    color: var(--primary-color-dark);
+                    background-color: var(--primary-color);
                 }
             }
        
@@ -101,17 +101,17 @@
     }
 }
 .customDropdownSelect{
-    color: var(--primary-color)
+    color: var(--primary-color-dark)
 }
 .customDropdownOptions{
-    color: var(--primary-color)
+    color: var(--primary-color-dark)
 }
 .customDropdownOption{
     &:hover{
         color: var(--text-color-light);
-        background-color: var(--primary-color);
+        background-color: var(--primary-color-dark);
     }
 }
 .customModal{
-    color: var(--primary-color);
+    color: var(--primary-color-dark);
 }

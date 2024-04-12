@@ -3,7 +3,7 @@ import '@testing-library/jest-dom/extend-expect'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from '../__store__/store.js'
-import Home from '../pages/Home/'
+import Home from '../pages/Home/index.jsx'
 
 /**
  * Test suite for the Home component.

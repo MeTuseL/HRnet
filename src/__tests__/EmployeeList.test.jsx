@@ -4,8 +4,8 @@ import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import store from '../__store__/store.js'
 import { useSelector } from 'react-redux'
-import EmployeeList from '../pages/EmployeeList/'
-import { users } from '../__mock__/users'
+import EmployeeList from '../pages/EmployeeList/index.jsx'
+import { users } from '../__mock__/users.js'
 
 // Mocking react-redux's useSelector hook
 jest.mock('react-redux', () => ({

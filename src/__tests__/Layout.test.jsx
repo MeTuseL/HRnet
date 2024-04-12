@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { BrowserRouter as Router } from 'react-router-dom'
-import Layout from '../components/Layout/'
+import Layout from '../components/Layout'
 
 /**
  * Test suite for the Layout component.

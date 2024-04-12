@@ -1,13 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import Home from './pages/Home'
+import Home from './pages/Home/index.jsx'
 import { Provider } from 'react-redux'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import ErrorPage from './pages/ErrorPage'
-import EmployeeList from './pages/EmployeeList'
+import ErrorPage from './pages/ErrorPage/index.jsx'
+import EmployeeList from './pages/EmployeeList/index.jsx'
 import store from './__store__/store'
 import './styles/index.css'
-import Layout from './components/Layout'
+import Layout from './components/Layout/index.jsx'
 
 /**
  * Main entry point for the Argent Bank application.

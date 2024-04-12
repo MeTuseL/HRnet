@@ -10,7 +10,7 @@
 
     &__title{
         font-size: var(--font-size-36);
-        color: var(--primary-color-light);
+        color: var(--primary-color-dark);
     }
     &__main{
         display: flex;
@@ -21,7 +21,7 @@
         width: 100%;
         padding: 25px;
         border-radius: 5px;
-        background-color: var(--primary-color);
+        background-color: var(--primary-color-dark);
 
         &__Link{
             text-decoration: underline;

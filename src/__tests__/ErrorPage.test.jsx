@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import '@testing-library/jest-dom/extend-expect'
 import { BrowserRouter as Router } from 'react-router-dom'
-import ErrorPage from '../pages/ErrorPage/'
+import ErrorPage from '../pages/ErrorPage'
 
 /**
  * Test suite for the ErrorPage component.
