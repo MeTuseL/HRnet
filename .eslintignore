@@ -5,3 +5,4 @@ node_modules/
 *.min.js
 docs/
 coverage/
+lighthouse-repport/
